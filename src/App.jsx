@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import CryptoJS from 'crypto-js';
 import GitHub from './components/Github';
 import uploadIcon from './assets/upload-icon.png';
@@ -11,7 +11,49 @@ function App() {
   const [status, setStatus] = useState('Status: -');
   const [processTime, setProcessTime] = useState('Processing Time: -');
   const [fileType, setFileType] = useState('Document Type: -');
+  const [deferredPrompt, setDeferredPrompt] = useState(null);
   const fileInputRef = useRef(null);
+
+  // ==== PWA ==== //
+  useEffect(() => {
+    const registerServiceWorker = async () => {
+      try {
+        if ('serviceWorker' in navigator) {
+          await navigator.serviceWorker.register('/sw.js');
+        }
+      } catch (error) {
+        console.error('Service Worker registration failed:', error);
+      }
+    };
+
+    registerServiceWorker();
+
+    const handleBeforeInstallPrompt = (e) => {
+      e.preventDefault();
+      setDeferredPrompt(e);
+    };
+
+    window.addEventListener('beforeinstallprompt', handleBeforeInstallPrompt);
+
+    return () => {
+      window.removeEventListener('beforeinstallprompt', handleBeforeInstallPrompt);
+    };
+  }, []);
+
+  const handleAddToHomeScreenClick = () => {
+    if (deferredPrompt) {
+      deferredPrompt.prompt();
+      deferredPrompt.userChoice.then((choiceResult) => {
+        if (choiceResult.outcome === 'accepted') {
+          console.log('User accepted the A2HS prompt');
+        } else {
+          console.log('User dismissed the A2HS prompt');
+        }
+        setDeferredPrompt(null);
+      });
+    }
+  };
+  // ======== //
 
   const handleFileChange = (e) => {
     const selectedFile = e.target.files[0];
@@ -30,7 +72,7 @@ function App() {
     alert(message);
   };
 
-  // ================ ENCRYPTION ================= // 
+  // ================ ENCRYPTION ================= //
   const encryptFile = () => {
     if (!file) {
       showAlert('Please select a file first');
@@ -84,9 +126,9 @@ function App() {
     };
     reader.readAsArrayBuffer(file);
   };
-  // ================ END ================= // 
+  // ================ END ================= //
 
-  // ================ DECRYPTION ================= // 
+  // ================ DECRYPTION ================= //
   const decryptFile = () => {
     if (!file) {
       showAlert('Please select a file first');
@@ -158,7 +200,7 @@ function App() {
 
     reader.readAsArrayBuffer(file);
   };
-  // ================ END ================= // 
+  // ================ END ================= //
 
   const handleRefresh = () => {
     setFile(null);

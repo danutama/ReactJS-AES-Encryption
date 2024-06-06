@@ -1,16 +1,27 @@
 <!-- MADE WITH LOVE BY DANU PRATAMA -->
 <!-- https://danutama.github.io -->
 
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/png" href="/src/assets/upload-icon.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/png" href="/upload-icon.png" />
+    <link rel="apple-touch-icon" href="/upload-icon.png" sizes="180x180">
+    <meta name="theme-color" content="#ffffff" />
+    <link rel="manifest" href="/public/manifest.webmanifest" />
     <title>AES Encryption & Decryption</title>
   </head>
   <body>
     <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>
+    <script src="/registerSW.js"></script>
+    <script>
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+          navigator.serviceWorker.register('/sw.js', { scope: '/' })
+        })
+      }
+    </script>
   </body>
 </html>
