@@ -16,5 +16,6 @@ Web enkripsi dan dekripsi file multiformat ini dibangun menggunakan React JS. Ad
 3. **Enkripsi/Dekripsi:** Klik tombol "Encrypt" untuk mengenkripsi file atau "Decrypt" untuk mendekripsi file.
 4. **Unduh File:** File hasil enkripsi atau dekripsi siap untuk diunduh.
 
-## Progressive Web App (PWA) Support
+## Progressive Web App (PWA)
 Dukungan fitur Progressive Web App (PWA) menggunakan plugin VitePWA.
+https://vite-pwa-org.netlify.app/
