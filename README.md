@@ -8,7 +8,7 @@ Currently, two official plugins are available:
 - [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
 # AES 128, 192, 256 bit
-[![Website Badge](https://img.shields.io/badge/Website-green?style=for-the-badge&logo=website&logoColor=black)](https://enkripsi.netlify.app) 
+[![Live Review Badge](https://img.shields.io/badge/Live%20Review-green?style=for-the-badge&logo=website&logoColor=black)](https://enkripsi.netlify.app)
 Web enkripsi dan dekripsi file multiformat ini dibangun menggunakan React JS. Advanced Encryption Standard (AES) adalah algoritma block cipher dengan kunci simetris untuk proses enkripsi dan dekripsi yang semula bernama algoritma Rijndael yang dirancang oleh Vincent Rijmen dan Joan Daemen, Belgia. Pada tahun 2001, NIST (National Institute of Standards and Technology) kemudian merilis AES sebagai standar kriptografi baru, menggantikan algoritma DES (Data Encryption Standard).
 
 ## Cara Menggunakan
