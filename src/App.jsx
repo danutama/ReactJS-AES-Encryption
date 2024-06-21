@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import CryptoJS from 'crypto-js';
 import GitHub from './components/Github';
-import uploadIcon from '../public/upload-icon.png';
+import uploadIcon from './assets/upload-icon.png';
 import './App.css';
 
 function App() {
