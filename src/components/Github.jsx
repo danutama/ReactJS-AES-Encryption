@@ -5,30 +5,35 @@ import { FaFileCode } from 'react-icons/fa';
 function GitHub() {
   const [repoCount, setRepoCount] = useState(0);
   const [username, setUsername] = useState('');
-  const [error, setError] = useState(null);
+  const [isError, setIsError] = useState(false);
 
   useEffect(() => {
-    fetch('https://api.github.com/users/danutama/repos')
-      .then((response) => response.json())
-      .then((data) => {
-        if (data.length > 0) {
-          const repoCount = data.length;
-          const username = data[0].owner.login;
+    if (navigator.onLine) {
+      fetch('https://api.github.com/users/danutama/repos')
+        .then((response) => response.json())
+        .then((data) => {
+          if (data.length > 0) {
+            const repoCount = data.length;
+            const username = data[0].owner.login;
 
-          setRepoCount(repoCount);
-          setUsername(username);
-        }
-      })
-      .catch((error) => {
-        console.error(error);
-        setError(error.message);
-      });
+            setRepoCount(repoCount);
+            setUsername(username);
+            setIsError(false);
+          }
+        })
+        .catch((error) => {
+          console.error(error);
+          setIsError(true);
+        });
+    } else {
+      setIsError(true);
+    }
   }, []);
 
   return (
     <div>
-      {error ? (
-        <p>Error: {error}</p>
+      {isError ? (
+        <a href="https://danutama.github.io" target='_blank' rel="noopener noreferrer">By danutama.github.io</a>
       ) : (
         <div className="github-repo">
           <a href="https://github.com/danutama" target="_blank" title="GitHub Repo" rel="noopener noreferrer">

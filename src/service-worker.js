@@ -6,6 +6,7 @@ self.addEventListener('install', (event) => {
         '/index.html',
         './static/assets/index.css',
         './static/assets/index.js',
+        './static/assets/upload-icon.png',
         './upload-icon.png',
       ]);
     })
