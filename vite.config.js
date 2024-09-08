@@ -1,5 +1,5 @@
-import { defineConfig } from 'vite'
-import react from '@vitejs/plugin-react'
+import { defineConfig } from 'vite';
+import react from '@vitejs/plugin-react';
 import { VitePWA } from 'vite-plugin-pwa';
 
 export default defineConfig({
@@ -7,8 +7,13 @@ export default defineConfig({
     react(),
     VitePWA({
       registerType: 'autoUpdate',
-      injectRegister: 'auto',
-      includeAssets: ['upload-icon.png'],
+      devOptions: {
+        enabled: true,
+      },
+      workbox: {
+        skipWaiting: true,
+        clientsClaim: true,
+      },
       manifest: {
         name: 'React AES Encryption',
         short_name: 'AES App',
@@ -16,21 +21,17 @@ export default defineConfig({
         theme_color: '#ffffff',
         icons: [
           {
-            src: '/upload-icon.png',
+            src: '/upload-icon192.png',
             sizes: '192x192',
-            type: 'image/png'
+            type: 'image/png',
           },
           {
             src: '/upload-icon.png',
             sizes: '512x512',
-            type: 'image/png'
-          }
-        ]
+            type: 'image/png',
+          },
+        ],
       },
-      injectManifest: {
-        swSrc: 'src/service-worker.js',
-        swDest: 'service-worker.js',
-      },
-    })
-  ]
+    }),
+  ],
 });
