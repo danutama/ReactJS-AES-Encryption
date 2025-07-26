@@ -1,14 +1,14 @@
 {
   "name": "react-aes",
   "private": true,
-  "version": "0.0.1",
+  "version": "1.0.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
     "build:version": "vite build",
     "release:version": "standard-version",
-    "release": "pnpm release:version && git push --follow-tags origin main && pnpm build:version && git add . && git commit -m \"chore: build output\" && git push origin main",
+    "release": "pnpm release:version && git push --follow-tags origin main && pnpm build:version && git add . && git diff --quiet || git commit -m \"chore: build output\" && git push origin main",
     "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview"
   },
