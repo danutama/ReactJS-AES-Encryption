@@ -6,13 +6,19 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
+    "build:version": "vite build",
+    "release:version": "standard-version",
+    "release": "pnpm release:version && git push --follow-tags origin main && pnpm build:version && git add . && git commit -m \"chore: build output\" && git push origin main",
     "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview"
   },
   "dependencies": {
+    "bootstrap": "^5.3.7",
+    "bootstrap-icons": "^1.13.1",
     "crypto-js": "^4.2.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-hot-toast": "^2.5.2",
     "react-icons": "^5.2.1"
   },
   "devDependencies": {
@@ -23,6 +29,7 @@
     "eslint-plugin-react": "^7.34.1",
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-react-refresh": "^0.4.6",
+    "standard-version": "^9.5.0",
     "vite": "^5.2.0",
     "vite-plugin-pwa": "^0.20.0"
   }

@@ -1,0 +1,59 @@
+#root {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+}
+
+:root {
+  --primary: #0d6efd;
+}
+
+html,
+body {
+  font-family: 'Poppins', sans-serif !important;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.app {
+  min-height: 100vh;
+}
+
+.icon {
+  width: 80px;
+  height: 80px;
+  border-radius: 50px;
+}
+
+.icon i {
+  font-size: 40px;
+}
+
+.blue-pastel-1 {
+  background-color: #e6f3ff;
+}
+
+.drop-zone:hover {
+  border-color: var(--primary);
+}
+
+button,
+button:focus,
+button:active {
+  outline: none;
+  box-shadow: none;
+  border: 0;
+}
+
+.form-control:active,
+.form-control:focus {
+  outline: none;
+  box-shadow: none;
+  border-color: var(--primary);
+}
+
+.btn-refresh {
+  background-color: hsl(225, 20%, 96%) !important;
+  border: 1px solid hsl(225, 20%, 96%) !important;
+}
