@@ -10,7 +10,7 @@ function DropZone({ file, fileName, fileInputRef, handleFileChange, setFile, set
   return (
     <div className="mb-4">
       <div
-        className={`card drop-zone rounded-1 text-center p-4 ${file ? 'bg-light' : 'bg-white'}`}
+        className={`card drop-zone rounded-1 text-center p-4 ${file ? 'file-selected' : ''}`}
         style={{ cursor: 'pointer' }}
         onClick={handleButtonClick}
         onDragOver={(e) => e.preventDefault()}
