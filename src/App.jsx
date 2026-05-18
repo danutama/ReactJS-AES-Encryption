@@ -4,27 +4,20 @@ import InputKey from './components/InputKey';
 import Footer from './components/Footer';
 import { encryptFile, decryptFile } from './hooks/useCrypto';
 
+const INITIAL_STATE = { file: null, fileName: '', privateKey: '' };
+
 function App() {
-  const [file, setFile] = useState(null);
-  const [fileName, setFileName] = useState('');
-  const [privateKey, setPrivateKey] = useState('');
+  const [{ file, fileName, privateKey }, setState] = useState(INITIAL_STATE);
   const fileInputRef = useRef(null);
 
-  const handleFileChange = (e) => {
-    const selectedFile = e.target.files[0];
-    if (selectedFile) {
-      setFile(selectedFile);
-      setFileName(selectedFile.name);
-    }
+  const handleFileChange = ({ target: { files } }) => {
+    const selected = files[0];
+    if (selected) setState(prev => ({ ...prev, file: selected, fileName: selected.name }));
   };
 
   const handleRefresh = () => {
-    setFile(null);
-    setFileName('');
-    setPrivateKey('');
-    if (fileInputRef.current) {
-      fileInputRef.current.value = null;
-    }
+    setState(INITIAL_STATE);
+    if (fileInputRef.current) fileInputRef.current.value = null;
   };
 
   return (
@@ -32,7 +25,7 @@ function App() {
       <div className="text-center mb-4">
         <div className="mb-3 d-flex justify-content-center align-items-center">
           <span className="icon blue-pastel-1 d-flex justify-content-center align-items-center pt-1">
-            <i className="bi bi-shield-fill-check text-primary"></i>
+            <i className="bi bi-shield-fill-check text-primary" />
           </span>
         </div>
         <h1 className="mb-2 fw-bold">AES Security</h1>
@@ -41,19 +34,29 @@ function App() {
 
       <div className="row justify-content-center">
         <div className="col-md-8 col-lg-6">
-          <DropZone file={file} fileName={fileName} fileInputRef={fileInputRef} handleFileChange={handleFileChange} setFile={setFile} setFileName={setFileName} />
+          <DropZone
+            file={file}
+            fileName={fileName}
+            fileInputRef={fileInputRef}
+            handleFileChange={handleFileChange}
+            setFile={(file) => setState(prev => ({ ...prev, file }))}
+            setFileName={(fileName) => setState(prev => ({ ...prev, fileName }))}
+          />
 
-          <InputKey privateKey={privateKey} setPrivateKey={setPrivateKey} />
+          <InputKey
+            privateKey={privateKey}
+            setPrivateKey={(privateKey) => setState(prev => ({ ...prev, privateKey }))}
+          />
 
           <div className="d-flex justify-content-sm-center justify-content-between gap-sm-2 gap-1 mt-4">
             <button className="btn btn-primary" onClick={() => encryptFile(file, fileName, privateKey)}>
-              <i className="bi bi-lock-fill"></i> Encrypt
+              <i className="bi bi-lock-fill" /> Encrypt
             </button>
             <button className="btn btn-primary" onClick={() => decryptFile(file, fileName, privateKey)}>
-              <i className="bi bi-unlock-fill"></i> Decrypt
+              <i className="bi bi-unlock-fill" /> Decrypt
             </button>
             <button className="btn btn-refresh" onClick={handleRefresh}>
-              <i className="bi bi-arrow-clockwise"></i> Refresh
+              <i className="bi bi-arrow-clockwise" /> Refresh
             </button>
           </div>
 
