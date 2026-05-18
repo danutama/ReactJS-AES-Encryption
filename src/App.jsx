@@ -28,7 +28,7 @@ function App() {
             <i className="bi bi-shield-fill-check text-primary" />
           </span>
         </div>
-        <h1 className="mb-2 fw-bold">AES Security</h1>
+        <h1 className="mb-2 fw-bold">CipherFile</h1>
         <p className="text-secondary">Securely encrypt your files with AES 128, 192, or 256 bit</p>
       </div>
 
