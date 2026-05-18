@@ -74,3 +74,9 @@ button:active {
   background-color: var(--color-secondary);
   border: 1px solid var(--color-secondary);
 }
+
+.btn-refresh:hover {
+  background-color: transparent;
+  color: var(--color-primary);
+  border: 1px solid var(--color-primary);
+}
