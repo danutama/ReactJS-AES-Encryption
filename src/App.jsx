@@ -29,7 +29,7 @@ function App() {
           </span>
         </div>
         <h1 className="mb-2 fw-bold">CipherFile</h1>
-        <p className="text-secondary text-center">Securely encrypt your files with AES 128, 192, or 256 bit</p>
+        <p className="text-secondary text-center mx-auto">Securely encrypt your files with AES 128, 192, or 256 bit</p>
       </div>
 
       <div className="row justify-content-center">
