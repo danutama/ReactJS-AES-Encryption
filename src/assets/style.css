@@ -36,6 +36,10 @@ body {
   border-color: var(--color-primary);
 }
 
+.text-primary {
+  color: var(--color-primary) !important;
+}
+
 .btn-primary {
   background-color: var(--color-primary);
   border-color: var(--color-primary);
