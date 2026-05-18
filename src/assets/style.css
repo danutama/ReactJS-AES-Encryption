@@ -39,7 +39,8 @@ body {
   border-color: var(--color-secondary);
 }
 
-.drop-zone:hover {
+.drop-zone:hover,
+.drop-zone.file-selected {
   border-color: var(--color-primary);
 }
 
