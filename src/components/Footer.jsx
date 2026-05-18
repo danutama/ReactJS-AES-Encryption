@@ -11,9 +11,11 @@ function Footer() {
           <FaGithub size={30} />
         </a>
 
-        <small className="text-secondary">©{currentYear} Made with love by Danu Pratama</small>
-        <br />
-<small className="text-secondary">No data stored. All processing happens in your browser.</small>
+        <div className="text-center">
+  <small className="text-secondary">©{currentYear} Made with love by Danu Pratama</small>
+  <br />
+  <small className="text-secondary">No data stored. All processing happens in your browser.</small>
+</div>
       </div>
     </footer>
   );
