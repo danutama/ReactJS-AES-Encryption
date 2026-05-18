@@ -12,6 +12,8 @@ function Footer() {
         </a>
 
         <small className="text-secondary">©{currentYear} Made with love by Danu Pratama</small>
+        <br />
+<small className="text-secondary">No data stored. All processing happens in your browser.</small>
       </div>
     </footer>
   );
