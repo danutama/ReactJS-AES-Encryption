@@ -42,9 +42,10 @@ body {
   color: #ffffff;
 }
 
-.btn-primary:hover,
-.btn-primary:focus,
-.btn-primary:active {
+.btn.btn-primary:hover,
+.btn.btn-primary:focus,
+.btn.btn-primary:active,
+.btn.btn-primary:focus-visible {
   background-color: var(--color-primary-hover);
   border-color: var(--color-primary-hover);
   color: #ffffff;
