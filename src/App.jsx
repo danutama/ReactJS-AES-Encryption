@@ -49,13 +49,13 @@ function App() {
           />
 
           <div className="d-flex justify-content-sm-center justify-content-between gap-sm-2 gap-1 mt-4">
-            <button className="btn btn-primary" onClick={() => encryptFile(file, fileName, privateKey)}>
+            <button className="btn btn-primary rounded-1" onClick={() => encryptFile(file, fileName, privateKey)}>
               <i className="bi bi-lock-fill" /> Encrypt
             </button>
-            <button className="btn btn-primary" onClick={() => decryptFile(file, fileName, privateKey)}>
+            <button className="btn btn-primary rounded-1" onClick={() => decryptFile(file, fileName, privateKey)}>
               <i className="bi bi-unlock-fill" /> Decrypt
             </button>
-            <button className="btn btn-refresh" onClick={handleRefresh}>
+            <button className="btn btn-refresh rounded-1" onClick={handleRefresh}>
               <i className="bi bi-arrow-clockwise" /> Refresh
             </button>
           </div>
